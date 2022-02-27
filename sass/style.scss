@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap");
+@import "variable";
+
+@mixin phone-layout() {
+  @media only screen and (max-width: 400px) {
+    @content;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Red Hat Display", sans-serif;
+}
+
+body {
+  background-color: $theme-color;
+  color: $secondary-text;
+}
+
+.main-container {
+  max-width: 450px;
+  padding: 2px;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 3%);
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 20px;
+
+  .card-image {
+    width: 100%;
+    line-height: 0;
+    img {
+      width: 100%;
+      border-radius: 20px 20px 0 0;
+    }
+  }
+
+  .card-body {
+    margin-top: 54px;
+    text-align: center;
+    .card-header {
+      color: $primary-text;
+      font-size: 1.9rem;
+      font-weight: 900;
+    }
+    .card-content {
+      color: $secondary-text;
+      width: 66%;
+      margin: 16px auto 22px;
+      line-height: 22px;
+      @include phone-layout() {
+        width: 90%;
+      }
+    }
+  }
+
+  .plan-box {
+    background-color: $plan-box-color;
+    width: 79%;
+    margin: 0 auto 32px;
+    padding: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0.75em;
+    @include phone-layout() {
+      width: 98%;
+      padding: 1.5rem 0.5rem;
+    }
+    .plan-group {
+      display: flex;
+      align-items: center;
+      .music-icon {
+        margin-right: 18px;
+      }
+      .plan-type {
+        // font-size: 1.1rem;
+        .plan-name {
+          color: $primary-text;
+          font-weight: 900;
+          margin-bottom: 0.2rem;
+        }
+      }
+    }
+    .change-btn {
+      color: $button-color;
+      font-weight: 700;
+    }
+  }
+
+  .btn-group {
+    width: 79%;
+    margin: 0 auto;
+    @include phone-layout() {
+      width: 98%;
+    }
+    .proceed-btn {
+      background-color: $button-color;
+      padding: 15px;
+      border-radius: 0.75em;
+      margin-bottom: 18px;
+      box-shadow: 0px 5px 10px hsla(245, 75%, 52%, 0.5);
+      a {
+        color: $plan-box-color;
+        text-decoration: none;
+        font-weight: 700;
+      }
+    }
+    .cancel-btn {
+      padding: 15px 0 45px;
+      a {
+        color: $secondary-text;
+        text-decoration: none;
+        font-weight: 700;
+      }
+    }
+  }
+}
